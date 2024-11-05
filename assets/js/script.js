@@ -157,3 +157,34 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('index.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('content').innerHTML = data;
+    });
+});
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = './assets/css/style.css';
+document.head.appendChild(link);
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault(); // يمنع فتح القائمة
+});
+
+document.onkeydown = function (e) {
+  if (e.keyCode == 123) { // F12
+    return false; // يمنع فتح أدوات المطور
+  }
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl+Shift+I
+    return false;
+  }
+  return true;
+};
+setInterval(function () {
+  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+    alert("انت بتعمل اي عندك يبشمهندس ؟؟؟؟");
+    window.location.href = "about:blank"; // أغلق الصفحة أو اعرض رسالة
+  }
+}, 1000);
