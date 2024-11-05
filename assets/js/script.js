@@ -182,9 +182,3 @@ document.onkeydown = function (e) {
   }
   return true;
 };
-setInterval(function () {
-  if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
-    alert("انت بتعمل اي عندك يبشمهندس ؟؟؟؟");
-    window.location.href = "about:blank"; // أغلق الصفحة أو اعرض رسالة
-  }
-}, 1000);
